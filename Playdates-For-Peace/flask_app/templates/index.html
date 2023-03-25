@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Playdates For Peace</title>
+</head>
+<body>
+        <div class="text-container row mt-5">
+            <img src="../static/imgs/kids.png" alt="kids playing" id="header-logo">
+            <h1>Playdates For Peace</h1>
+            <p>Single parent or stay at home parent? Out of ideas for social interaction for your child and yourself? <br>
+                Local suggestions in Greensboro for family fun activities and playdate ideas!</p>
+        </div>
+        <div class="grid-container row">
+            <div class="d-flex justify-content-evenly m-5 mx-auto">
+                <form action='/register' method='POST' class="">
+                    <input type="hidden" name="type" value="register">
+                    <h2 class="dash register mb-3 text-center">Register</h2>
+                    {% with messages = get_flashed_messages(category_filter=["register"]) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p class="text-danger text-center">{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label" for="first_name">First Name</label> 
+                        <div class="col-8">
+                            <input id="first_name" name="first_name" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="last_name" class="col-4 col-form-label">Last Name</label> 
+                        <div class="col-8">
+                            <input id="last_name" name="last_name" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-4 col-form-label">Email</label> 
+                        <div class="col-8">
+                            <input id="email" name="email" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-4 col-form-label">Password</label> 
+                        <div class="col-8">
+                            <input id="password" name="password" type="password" class="form-control">
+                        </div>
+                        </div>
+                    <div class="form-group row">
+                        <label for="confirm_password" class="col-4 col-form-label">Confirm Password</label> 
+                        <div class="col-8">
+                            <input name="confirm_password" type="password" class="form-control">
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button name="submit" type="submit" class="btn-main col-12">Register</button>
+                        </div>
+                    </div>
+                </form>
+                <form action='/loggedin' method='POST' class="">
+                    <input type="hidden" name="type" value="login">
+                    <h2 class="dash login mb-3 text-center">Log In</h2>
+                    {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p class="text-danger text-center">{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="form-group row">
+                        <label for="email" class="col-4 col-form-label">Email</label> 
+                        <div class="col-8">
+                            <input id="email" name="email" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-4 col-form-label">Password</label> 
+                        <div class="col-8">
+                            <input id="password" name="password" type="password" class="form-control">
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button name="submit" type="submit" class="btn-main col-12 mt-4">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <div id="footer">
+        <p>Copyright © 2023 Playdates For Peace.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>

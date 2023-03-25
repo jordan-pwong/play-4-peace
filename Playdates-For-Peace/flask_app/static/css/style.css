@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../imgs/jess-bailey-l3N9Q27zULw-unsplash.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#header {
+    margin: 0 auto;
+}
+
+#header-logo {
+        width: 50%;
+}
+
+#dash-logo {
+    display: block;
+    margin: auto;
+    width: 30%;
+}
+
+.dash {
+    margin: 0;
+    font-size: 60px;
+    font-family: 'Luckiest Guy', cursive;
+    color: rgba(236, 132, 208, 0.627);
+    text-align: center;
+}
+
+.dash-2 {
+    margin: 0;
+    font-size: 72px;
+    font-family: 'Luckiest Guy', cursive;
+    color: rgba(227, 136, 24, 0.627);
+    text-align: center;
+}
+
+.btn-main {
+    background-color: rgba(236, 132, 208, 0.627);
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+    .btn-main:hover {
+    background-image: url(../imgs/steve-johnson-wpw8sHoBtSY-unsplash.jpg);
+    opacity: 0.50;
+    }
+
+
+.container {
+    margin: 0 auto;
+    width: 100vw;
+}
+
+.text-container {
+    height: 90vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container h1 {
+    margin: 0 auto;
+    font-size: 10vw;
+    color: rgba(225,225,225, .01);
+    background-image: url(../imgs/ryan-wallace-5jtwRBB3CdI-unsplash.jpg);
+    background-repeat: repeat;
+    -webkit-background-clip:text;
+    animation: animate 25s ease-in-out infinite;
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+
+    @keyframes animate {
+    0%, 100% {
+        background-position: left top;
+    }
+    25% {
+        background-position: right bottom;
+    }
+    50% {
+        background-position: left bottom;
+    }
+    75% {
+        background-position: right top;
+    }   
+}
+
+
+.text-container p {
+    text-align: center;
+}
+
+input, textarea {
+    margin-top: 5px;
+}
+
+table {
+    background-color: white;
+}
+
+tr:hover {
+    background-color: rgba(0, 255, 149, 0.56);
+}
+
+
+.table-head {
+    background-color: rgba(0, 187, 255, 0.449);
+
+}
+
+.attending {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.759);
+    border: none;
+}
+#footer {
+    margin: 50px auto;
+    text-align: center;
+}

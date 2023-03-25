@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Playdates for Peace</title>
+</head>
+<body>
+    <div class="row p-3 nav">
+        <div class="col d-flex justify-content-between">
+            <h2 class="dash">Welcome, {{registered_user.first_name|capitalize}}!</h2>
+            <div class="col d-flex  justify-content-end">
+                <a href="/create">Add Playdate</a> | 
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <img src="../static/imgs/kids.png" alt="kids playing" id="dash-logo">
+        <h1 class="dash-2">Dashboard</h1>
+    </div>
+    <div class="container content">
+        <table data-toggle="table" data-sort-name="date" data-sort-order="desc" class="table table-striped table-condensed table-hover p-2">
+            <thead>
+                <tr class="table-head">
+                    <th>Playdate Event</th>
+                    <th>Date</th>
+                    <th>Posted By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for playdate in playdates %}
+                    <tr>
+                        <td>{{playdate.event}}</td>
+                        <td>{{playdate.date.strftime("%B %-d, %Y @ %-I:%M %p")}}</td>
+                        <td>{{playdate.rsvp.first_name|capitalize}}</td>
+                        <td class="text-center">
+                            <a href="/details/{{playdate.id}}" class="btn btn-primary btn-sm">details</a>
+                            {% if session['user_id'] == playdate.rsvp.id %}
+                            <a href="/edit/{{playdate.id}}" class="btn btn-warning btn-sm">edit</a>
+                            <a href="/delete/{{playdate.id}}" class="btn btn-danger btn-sm">delete</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="footer">
+        <p>Copyright © 2023 Playdates For Peace.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
